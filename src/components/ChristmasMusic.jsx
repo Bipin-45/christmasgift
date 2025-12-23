@@ -17,11 +17,11 @@ const ChristmasMusic = ({
   const hasStartedPlaying = useRef(false);
 
   const christmasTrack = {
-    name: "Last Christmas",
-    url: "/last-christmas.mp3",
+    name: "Christmas",
+    url: "/wewishyouamerrychirstmas.mp3",
   };
 
-  const START_TIME = 0;
+  const START_TIME = 4;
   const isPlaying = currentPlayingTrack === "background";
 
   // Close panel when clicking outside
