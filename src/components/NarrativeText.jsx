@@ -23,7 +23,7 @@ const NarrativeText = ({ id, text, mousePos, isMobile, onReveal }) => {
       const distance = Math.sqrt(dx * dx + dy * dy);
 
       // Larger threshold for easier reveal - increased mobile radius
-      const revealRadius = isMobile ? 220 : 280;
+      const revealRadius = isMobile ? 280 : 280;
 
       // Calculate visibility (0 to 1)
       let newVisibility = 0;
