@@ -186,7 +186,7 @@ function App() {
   // Throttled mouse/touch movement for flashlight - optimized for 60fps
   const lastMoveTime = useRef(0);
   const rafRef = useRef(null);
-  
+
   const handleMove = useCallback((clientX, clientY) => {
     const now = Date.now();
     if (now - lastMoveTime.current < 16) return; // 60fps throttle

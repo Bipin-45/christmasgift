@@ -302,7 +302,11 @@ html {
   position: absolute;
   width: 200px;
   height: 200px;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.3) 0%,
+    transparent 70%
+  );
   border-radius: 50%;
   top: 50%;
   left: 50%;
@@ -835,7 +839,12 @@ html {
 
 .firefly {
   position: absolute;
-  background: radial-gradient(circle, #ffd700 0%, rgba(255, 215, 0, 0.4) 50%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    #ffd700 0%,
+    rgba(255, 215, 0, 0.4) 50%,
+    transparent 70%
+  );
   border-radius: 50%;
   box-shadow: 0 0 8px 2px rgba(255, 215, 0, 0.6);
   will-change: transform, opacity;
@@ -844,7 +853,8 @@ html {
 }
 
 @keyframes fireflyFloat {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate3d(0, 0, 0) scale(0.6);
     opacity: 0;
   }
