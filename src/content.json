@@ -1,0 +1,142 @@
+{
+    "welcomeScreen": {
+        "title": "Merry Christmas, Naina",
+        "subtitle": "A Gift From My Heart",
+        "message": "I made this little world for you, Naina — a place filled with warmth, music, gentle poems, and dreams waiting to bloom. May it remind you of your own light and magic this Christmas.",
+        "buttonText": "Step Into the Wonder"
+    },
+    "heroSection": {
+        "timestamp": "2:14 AM",
+        "date": "December 24th",
+        "setting": "Christmas Eve. Everyone sleeps, but your heart is awake.",
+        "atmosphere": "The world holds its breath... waiting for your dreams to dance.",
+        "scrollGuide": "Begin your story"
+    },
+    "title": "A Christmas Eve for Naina",
+    "subtitle": {
+        "mobile": "Touch to reveal the poetry of your night",
+        "desktop": "Move your cursor to reveal the poetry of your night"
+    },
+    "scrollHint": "Scroll to step into the magic",
+    "narrativeFragments": [
+        {
+            "id": 1,
+            "text": "Snow drifts silently, wrapping the night in white. \nNaina, in your eyes — the world unfolds: stars shimmering, dreams sparkling. Every glance you give the universe is a wish, every sight you behold is a poem waiting to bloom."
+        },
+        {
+            "id": 2,
+            "text": "Candles flicker like tiny suns, their warmth embracing every corner. \nYou are a light, Naina; love yourself as fiercely as the world needs your glow."
+        },
+        {
+            "id": 3,
+            "text": "A gentle melody floats through the air, soft as falling snow. \nMusic lives in your soul — every note a reminder that joy grows when you nurture your dreams."
+        },
+        {
+            "id": 4,
+            "text": "Cocoa in your hands, cinnamon on your lips, pine scent in the air. \nPause, Naina, and feel the wonder: happiness blooms when you honor your own heart."
+        },
+        {
+            "id": 5,
+            "text": "The clock whispers toward midnight. \nIn this quiet hour, believe: you are enough, you are loved, and everything you’ve dreamed of is waiting for you."
+        },
+        {
+            "id": 6,
+            "text": "Close your eyes. Make a wish. \nLet it rise with the snowflakes into the starlit sky — the love you give yourself carries all your dreams home."
+        }
+    ],
+    "musicSection": {
+        "heading": "Melodies for You",
+        "subheading": "Songs I hope touch your heart ✨",
+        "tracks": [
+            {
+                "id": 1,
+                "title": "Perfect",
+                "artist": "Ed Sheeran",
+                "color": "#c41e3a",
+                "src": "/perfect.mp3"
+            },
+            {
+                "id": 2,
+                "title": "Can't Help Falling in Love",
+                "artist": "Elvis Presley",
+                "color": "#1a472a",
+                "src": "/cant-help-falling.mp3"
+            },
+            {
+                "id": 3,
+                "title": "Snowman",
+                "artist": "Sia",
+                "color": "#8b4513",
+                "src": "/snowman.mp3"
+            },
+            {
+                "id": 4,
+                "title": "Last Christmas",
+                "artist": "Wham!",
+                "color": "#4a1c6b",
+                "src": "/last-christmas.mp3"
+            }
+        ],
+        "whyChosen": "These melodies carry pieces of my heart. Each note, each lyric — chosen because they remind me of warmth, of love, of quiet moments I hope you'll treasure."
+    },
+    "movieSection": {
+        "heading": "Stories to Warm Your Heart",
+        "subheading": "Movies I chose for you, Naina ✨",
+        "movies": [
+            {
+                "id": 1,
+                "title": "Spirited Away",
+                "year": "2001",
+                "description": "A magical journey of courage, love, and self-discovery — just like your dreams, waiting for you to embrace them.",
+                "image": "/spirited-away.jfif"
+            },
+            {
+                "id": 2,
+                "title": "Your Name",
+                "year": "2016",
+                "description": "Two souls connected across time, reminding us that destiny dances with those who follow their hearts.",
+                "image": "/your-name.png"
+            }
+        ],
+        "whyChosen": "Stories that touched my soul — and I believe they'll touch yours too. These films speak of dreams, courage, and the magic that happens when we believe in ourselves."
+    },
+    "endingSection": {
+        "heading": "A Letter for You, Naina",
+        "subheading": "Click the envelope to receive my Christmas message",
+        "tapHint": "Tap to open"
+    },
+    "letter": {
+        "header": "Merry Christmas, Naina",
+        "body": "May your days shimmer with joy, your heart overflow with love, and your dreams unfold like the brightest stars. Believe in yourself, cherish your magic, and know that everything you hope for is already on its way. Always, remember: you are beautiful, brave, and infinitely loved.",
+        "signature": "With love, Bipin",
+        "closeHint": "Tap anywhere to close"
+    },
+    "riddleSection": {
+        "heading": "If You Ever Want to Know Who I Am...",
+        "subheading": "A gentle trail of whispers for your heart, Naina ✨",
+        "riddles": [
+            {
+                "id": 1,
+                "text": "Where warmth hums softly and love lingers unseen, \npause a moment, breathe, and feel the gentle glow."
+            },
+            {
+                "id": 2,
+                "text": "Little touches awaken hidden songs, \nlike snowflakes landing three times upon the quiet earth."
+            },
+            {
+                "id": 3,
+                "text": "At the hour when wishes rise and the world holds its breath, \nlisten closely — the unseen smile hums your name at 11.11."
+            },
+            {
+                "id": 4,
+                "text": "Curiosity and patience are keys of light, \nfollow the gentle path and discover a hello stitched with care."
+            }
+        ],
+        "hint": "Look where love is softly whispered at the bottom of the page… ✨",
+        "emoji": "✨"
+    },
+    "footer": {
+        "year": "December 2025",
+        "madeWith": "Made with love from me to Naina ♡ …and don’t forget to make a wish at 11.11 ✨"
+    }
+}

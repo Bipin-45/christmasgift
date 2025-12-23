@@ -1,0 +1,23 @@
+{
+    "name": "the-light-in-the-attic",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@babel/core": "^7.28.5",
+        "framer-motion": "^11.0.0",
+        "gensync": "^1.0.0-beta.2",
+        "lucide-react": "^0.562.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.2.0",
+        "vite": "^7.3.0"
+    }
+}
