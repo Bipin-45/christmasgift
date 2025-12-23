@@ -13,6 +13,7 @@ const ChristmasMusic = ({
   const [isMuted, setIsMuted] = useState(false);
   const [showControls, setShowControls] = useState(false);
   const audioRef = useRef(null);
+  const panelRef = useRef(null);
   const hasStartedPlaying = useRef(false);
 
   const christmasTrack = {
@@ -22,6 +23,25 @@ const ChristmasMusic = ({
 
   const START_TIME = 4;
   const isPlaying = currentPlayingTrack === "background";
+
+  // Close panel when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (panelRef.current && !panelRef.current.contains(event.target)) {
+        setShowControls(false);
+      }
+    };
+
+    if (showControls) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [showControls]);
 
   // Register audio on mount
   useEffect(() => {
@@ -102,7 +122,7 @@ const ChristmasMusic = ({
   };
 
   return (
-    <div className="christmas-music">
+    <div className="christmas-music" ref={panelRef}>
       <audio
         ref={audioRef}
         src={christmasTrack.url}
