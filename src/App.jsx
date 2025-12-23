@@ -183,16 +183,26 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Throttled mouse/touch movement for flashlight - improves performance
+  // Throttled mouse/touch movement for flashlight - optimized for 60fps
   const lastMoveTime = useRef(0);
+  const rafRef = useRef(null);
+  
   const handleMove = useCallback((clientX, clientY) => {
     const now = Date.now();
-    if (now - lastMoveTime.current < 8) return; // ~120fps for smoother tracking
+    if (now - lastMoveTime.current < 16) return; // 60fps throttle
     lastMoveTime.current = now;
 
-    setMousePos({
-      x: `${clientX}px`,
-      y: `${clientY}px`,
+    // Cancel any pending animation frame
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+    }
+
+    // Use requestAnimationFrame for smooth updates
+    rafRef.current = requestAnimationFrame(() => {
+      setMousePos({
+        x: `${clientX}px`,
+        y: `${clientY}px`,
+      });
     });
   }, []);
 
@@ -215,6 +225,9 @@ function App() {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("touchstart", handleTouchMove);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
     };
   }, [handleMove]);
 

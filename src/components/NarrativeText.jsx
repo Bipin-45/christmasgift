@@ -48,7 +48,8 @@ const NarrativeText = ({ id, text, mousePos, isMobile, onReveal }) => {
   // Calculate styles based on visibility with smoother interpolation
   const smoothVisibility = visibility * visibility * (3 - 2 * visibility); // Smoothstep function
   const opacity = 0.1 + smoothVisibility * 0.9;
-  const blur = (1 - smoothVisibility) * 2.5;
+  // Only apply blur on desktop for performance
+  const blur = isMobile ? 0 : (1 - smoothVisibility) * 2;
   const scale = 0.99 + smoothVisibility * 0.01;
 
   return (
@@ -58,9 +59,9 @@ const NarrativeText = ({ id, text, mousePos, isMobile, onReveal }) => {
         className="narrative-text-wrapper"
         style={{
           opacity,
-          filter: `blur(${blur}px)`,
-          transform: `scale(${scale})`,
-          transition: 'opacity 0.15s ease, filter 0.15s ease, transform 0.15s ease',
+          filter: blur > 0.1 ? `blur(${blur}px)` : 'none',
+          transform: `translate3d(0, 0, 0) scale(${scale})`,
+          willChange: 'opacity, transform',
         }}
       >
         <p className="narrative-text">{text}</p>

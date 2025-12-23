@@ -1,51 +1,46 @@
-import React, { useMemo } from "react";
-import { motion } from "framer-motion";
+import React, { useMemo, useEffect, useState } from "react";
 
 const Snowflakes = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Reduce count on mobile for better performance
+  const count = isMobile ? 20 : 35;
+
   // Generate snowflakes with random properties
   const snowflakes = useMemo(() => {
-    return Array.from({ length: 50 }, (_, i) => ({
+    return Array.from({ length: count }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       delay: Math.random() * 10,
-      duration: 8 + Math.random() * 12,
-      size: 0.5 + Math.random() * 1,
-      opacity: 0.3 + Math.random() * 0.5,
-      drift: -30 + Math.random() * 60,
-      type: Math.random() > 0.5 ? "❄" : "❅",
+      duration: 10 + Math.random() * 10,
+      size: 0.6 + Math.random() * 0.8,
+      opacity: 0.4 + Math.random() * 0.4,
     }));
-  }, []);
+  }, [count]);
 
   return (
     <div className="snowflakes-container">
       {snowflakes.map((flake) => (
-        <motion.div
+        <div
           key={flake.id}
           className="snowflake-falling"
-          initial={{ 
-            y: -20, 
-            x: 0,
-            opacity: 0 
-          }}
-          animate={{
-            y: ["0vh", "105vh"],
-            x: [0, flake.drift, flake.drift / 2, flake.drift],
-            opacity: [0, flake.opacity, flake.opacity, 0],
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: flake.duration,
-            delay: flake.delay,
-            repeat: Infinity,
-            ease: "linear",
-          }}
           style={{
             left: `${flake.left}%`,
             fontSize: `${flake.size}rem`,
+            opacity: flake.opacity,
+            animationDuration: `${flake.duration}s`,
+            animationDelay: `${flake.delay}s`,
           }}
         >
-          {flake.type}
-        </motion.div>
+          ❄
+        </div>
       ))}
     </div>
   );
