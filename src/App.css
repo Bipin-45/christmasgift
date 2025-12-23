@@ -1,3 +1,25 @@
+/* GPU Acceleration & Performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize animations for GPU */
+.narrative-text-wrapper,
+.vinyl-record,
+.movie-card,
+.decoration-item,
+.snowflake,
+.magic-dust {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
 .app-container {
   position: relative;
   min-height: 100vh;
@@ -2052,15 +2074,16 @@
   }
 
   .narrative-section {
-    padding: 3rem 1rem;
-    min-height: 70vh;
+    padding: 1.5rem 1rem;
+    min-height: 50vh;
   }
 
   .narrative-text {
     max-width: 100%;
-    padding: 1rem;
+    padding: 0.75rem;
     font-size: clamp(1rem, 5vw, 1.6rem);
     margin: 0 auto;
+    line-height: 1.9;
   }
 
   .narrative-text::before,
@@ -3738,6 +3761,12 @@
    ======================================== */
 
 @media (max-width: 480px) {
+  /* Reduce poem spacing on small mobile */
+  .narrative-section {
+    padding: 1rem 0.75rem;
+    min-height: 40vh;
+  }
+
   /* Hero Section Mobile */
   .hero-section {
     padding: 2.5rem 1rem 1.5rem;
@@ -3940,6 +3969,17 @@
     display: none;
   }
 
+  /* Reduce poem spacing even more on tiny screens */
+  .narrative-section {
+    padding: 0.75rem 0.5rem;
+    min-height: 35vh;
+  }
+
+  .narrative-text {
+    padding: 0.5rem;
+    line-height: 1.8;
+  }
+
   .lamp-icon {
     width: 70px;
     height: 70px;
@@ -3990,6 +4030,21 @@
     transform: none;
   }
 
+  /* Reduce animation intensity on mobile */
+  .magic-dust,
+  .decoration-item {
+    animation-duration: 12s !important;
+  }
+
+  .snowflake {
+    animation-duration: 15s !important;
+  }
+
+  /* Simplify shadows on mobile for performance */
+  .narrative-text {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  }
+
   /* Increase tap targets */
   .vinyl-record-wrapper {
     min-height: 44px;
@@ -4020,5 +4075,10 @@
 
   .decoration-item {
     animation: none;
+  }
+
+  .magic-dust,
+  .snowflake {
+    display: none;
   }
 }
