@@ -24,6 +24,8 @@ import ChristmasMusic from "./components/ChristmasMusic";
 import ChristmasDecorations from "./components/ChristmasDecorations";
 import NarrativeText from "./components/NarrativeText";
 import Stars from "./components/Stars";
+import Snowflakes from "./components/Snowflakes";
+import Fireflies from "./components/Fireflies";
 import ScrollProgress from "./components/ScrollProgress";
 import LoadingScreen from "./components/LoadingScreen";
 import content from "./content.json";
@@ -185,7 +187,7 @@ function App() {
   const lastMoveTime = useRef(0);
   const handleMove = useCallback((clientX, clientY) => {
     const now = Date.now();
-    if (now - lastMoveTime.current < 16) return; // ~60fps throttle
+    if (now - lastMoveTime.current < 8) return; // ~120fps for smoother tracking
     lastMoveTime.current = now;
 
     setMousePos({
@@ -276,6 +278,12 @@ function App() {
 
             {/* Stars */}
             <Stars />
+
+            {/* Falling Snowflakes */}
+            <Snowflakes />
+
+            {/* Floating Fireflies */}
+            <Fireflies />
 
             {/* Christmas Decorations */}
             <ChristmasDecorations />

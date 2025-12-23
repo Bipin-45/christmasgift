@@ -22,36 +22,34 @@ const NarrativeText = ({ id, text, mousePos, isMobile, onReveal }) => {
       const dy = mouseY - textCenterY;
       const distance = Math.sqrt(dx * dx + dy * dy);
 
-      // Threshold based on device
-      const revealRadius = isMobile ? 120 : 200;
+      // Larger threshold for easier reveal on desktop
+      const revealRadius = isMobile ? 150 : 280;
 
       // Calculate visibility (0 to 1)
       let newVisibility = 0;
       if (distance < revealRadius) {
         newVisibility = 1 - distance / revealRadius;
-        newVisibility = Math.pow(newVisibility, 0.5); // Ease the curve
+        newVisibility = Math.pow(newVisibility, 0.4); // Smoother curve for easier reveal
       }
 
       setVisibility(newVisibility);
 
       // Trigger reveal callback once
-      if (newVisibility > 0.5 && !hasTriggeredRef.current) {
+      if (newVisibility > 0.3 && !hasTriggeredRef.current) {
         hasTriggeredRef.current = true;
         onReveal?.(id);
       }
     };
 
-    // Run check frequently for smooth updates
-    const interval = setInterval(checkDistance, 16);
-    checkDistance(); // Initial check
-
-    return () => clearInterval(interval);
+    // Run immediately on mouse position change
+    checkDistance();
   }, [mousePos, isMobile, id, onReveal]);
 
-  // Calculate styles based on visibility
-  const opacity = 0.08 + visibility * 0.92;
-  const blur = (1 - visibility) * 3;
-  const scale = 0.98 + visibility * 0.02;
+  // Calculate styles based on visibility with smoother interpolation
+  const smoothVisibility = visibility * visibility * (3 - 2 * visibility); // Smoothstep function
+  const opacity = 0.1 + smoothVisibility * 0.9;
+  const blur = (1 - smoothVisibility) * 2.5;
+  const scale = 0.99 + smoothVisibility * 0.01;
 
   return (
     <section className="narrative-section">
@@ -62,6 +60,7 @@ const NarrativeText = ({ id, text, mousePos, isMobile, onReveal }) => {
           opacity,
           filter: `blur(${blur}px)`,
           transform: `scale(${scale})`,
+          transition: 'opacity 0.15s ease, filter 0.15s ease, transform 0.15s ease',
         }}
       >
         <p className="narrative-text">{text}</p>

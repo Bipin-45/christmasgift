@@ -790,6 +790,50 @@ html {
   mix-blend-mode: screen;
 }
 
+/* Falling Snowflakes */
+.snowflakes-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.snowflake-falling {
+  position: absolute;
+  top: -20px;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  user-select: none;
+  will-change: transform;
+}
+
+/* Floating Fireflies */
+.fireflies-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.firefly {
+  position: absolute;
+  background: radial-gradient(circle, #ffd700 0%, rgba(255, 215, 0, 0.6) 40%, transparent 70%);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px 2px rgba(255, 215, 0, 0.8),
+    0 0 20px 4px rgba(255, 215, 0, 0.4),
+    0 0 30px 6px rgba(255, 200, 0, 0.2);
+  will-change: transform, opacity;
+}
+
 /* Magic dust particles - near invisible until light passes */
 .magic-dust {
   position: absolute;
