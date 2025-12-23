@@ -17,11 +17,11 @@ const ChristmasMusic = ({
   const hasStartedPlaying = useRef(false);
 
   const christmasTrack = {
-    name: "Christmas",
-    url: "/wewishyouamerrychirstmas.mp3",
+    name: "Last Christmas",
+    url: "/last-christmas.mp3",
   };
 
-  const START_TIME = 4;
+  const START_TIME = 0;
   const isPlaying = currentPlayingTrack === "background";
 
   // Close panel when clicking outside
@@ -141,7 +141,7 @@ const ChristmasMusic = ({
           >
             <div className="christmas-music-header">
               <Music size={14} />
-              <span>Ambiance</span>
+              <span>Happy Christmas</span>
             </div>
 
             <div className="christmas-music-controls">
