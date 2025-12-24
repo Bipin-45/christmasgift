@@ -894,13 +894,12 @@ function App() {
                         {content.riddleSection.riddles.map((riddle, index) => (
                           <motion.p
                             key={riddle.id}
-                            className="riddle-clue"
+                            className="riddle-clue no-number"
                             initial={{ opacity: 0, x: -10 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 * (index + 1) }}
                           >
-                            <span className="clue-number">{riddle.id}</span>
                             {riddle.text}
                           </motion.p>
                         ))}
