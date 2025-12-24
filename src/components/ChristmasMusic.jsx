@@ -101,6 +101,15 @@ const ChristmasMusic = ({
         playsInline
       />
 
+      {/* Sound waves container - separate from button */}
+      {isPlaying && (
+        <div className="sound-waves-container">
+          <span className="sound-wave wave1"></span>
+          <span className="sound-wave wave2"></span>
+          <span className="sound-wave wave3"></span>
+        </div>
+      )}
+
       <motion.button
         className={`music-btn ${isPlaying ? "playing" : ""}`}
         onClick={togglePlay}
@@ -112,13 +121,6 @@ const ChristmasMusic = ({
         <div className="music-btn-inner">
           {isPlaying ? <Pause size={18} /> : <Music size={18} />}
         </div>
-        {isPlaying && (
-          <>
-            <span className="music-wave wave1"></span>
-            <span className="music-wave wave2"></span>
-            <span className="music-wave wave3"></span>
-          </>
-        )}
       </motion.button>
     </div>
   );
