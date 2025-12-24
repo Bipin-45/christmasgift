@@ -927,7 +927,15 @@ function App() {
                       onClick={() => setEasterEggClicks((prev) => prev + 1)}
                       style={{ cursor: "default" }}
                     >
-                      {content.footer.madeWith}
+                      {content.footer.madeWith.split("11.11").length > 1 ? (
+                        <>
+                          {content.footer.madeWith.split("11.11")[0]}
+                          <span className="footer-1111">11.11</span>
+                          {content.footer.madeWith.split("11.11")[1]}
+                        </>
+                      ) : (
+                        content.footer.madeWith
+                      )}
                     </p>
                     <AnimatePresence>
                       {easterEggClicks >= 3 && (

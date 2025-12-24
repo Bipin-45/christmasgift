@@ -1,3 +1,15 @@
+/* Style for 11.11 in the footer */
+.footer-1111 {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: #ff6b6b;
+  letter-spacing: 0.12em;
+  text-shadow: 0 0 8px #ffd700, 0 0 2px #fff;
+  font-family: "Fira Mono", "Menlo", "Consolas", monospace;
+  vertical-align: middle;
+  padding: 0 0.08em;
+  display: inline-block;
+}
 /* GPU Acceleration & Performance */
 * {
   -webkit-font-smoothing: antialiased;
@@ -890,7 +902,6 @@ html {
   border-radius: 50%;
   animation: dustFloat 8s ease-in-out infinite,
     dustSparkle 4s ease-in-out infinite;
-  filter: blur(0.5px);
 }
 
 @keyframes dustFloat {
@@ -4190,25 +4201,3 @@ html {
 }
 
 /* Reduce motion for users who prefer it */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  .vinyl-record.spinning {
-    animation: none;
-  }
-
-  .decoration-item {
-    animation: none;
-  }
-
-  .magic-dust,
-  .snowflake {
-    display: none;
-  }
-}
