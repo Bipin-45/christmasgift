@@ -4065,7 +4065,8 @@ html {
 
   /* Ending Section Mobile */
   .sunrise-section {
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
+    margin-top: -3rem;
   }
 
   .sunrise-heading {
@@ -4103,7 +4104,8 @@ html {
 
   /* Footer Mobile */
   .christmas-footer {
-    margin-top: 2rem;
+    margin-top: 1rem;
+    padding-bottom: 5rem; /* Space for music icon */
   }
 
   .footer-year {
@@ -4112,6 +4114,7 @@ html {
 
   .footer-made-with {
     font-size: 0.65rem;
+    margin-bottom: 1rem;
   }
 
   .secret-easter-egg {
