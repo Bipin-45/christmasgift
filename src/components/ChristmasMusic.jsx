@@ -141,7 +141,7 @@ const ChristmasMusic = ({
           >
             <div className="christmas-music-header">
               <Music size={14} />
-              <span>Happy Christmas</span>
+              <span>Merry Christmas</span>
             </div>
 
             <div className="christmas-music-controls">
