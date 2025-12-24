@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Music, Pause, Play, Volume2, VolumeX } from "lucide-react";
+import { motion } from "framer-motion";
+import { Music, Pause } from "lucide-react";
 
 const ChristmasMusic = ({
   registerAudio,
@@ -10,10 +10,7 @@ const ChristmasMusic = ({
   setCurrentPlayingTrack,
   shouldPlay = false,
 }) => {
-  const [isMuted, setIsMuted] = useState(false);
-  const [showControls, setShowControls] = useState(false);
   const audioRef = useRef(null);
-  const panelRef = useRef(null);
   const hasStartedPlaying = useRef(false);
 
   const christmasTrack = {
@@ -23,25 +20,6 @@ const ChristmasMusic = ({
 
   const START_TIME = 4;
   const isPlaying = currentPlayingTrack === "background";
-
-  // Close panel when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (panelRef.current && !panelRef.current.contains(event.target)) {
-        setShowControls(false);
-      }
-    };
-
-    if (showControls) {
-      document.addEventListener("mousedown", handleClickOutside);
-      document.addEventListener("touchstart", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
-    };
-  }, [showControls]);
 
   // Register audio on mount
   useEffect(() => {
@@ -114,15 +92,8 @@ const ChristmasMusic = ({
     }
   };
 
-  const toggleMute = () => {
-    if (audioRef.current) {
-      audioRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
   return (
-    <div className="christmas-music" ref={panelRef}>
+    <div className="christmas-music-simple">
       <audio
         ref={audioRef}
         src={christmasTrack.url}
@@ -130,54 +101,23 @@ const ChristmasMusic = ({
         playsInline
       />
 
-      <AnimatePresence>
-        {showControls && (
-          <motion.div
-            className="christmas-music-panel"
-            initial={{ opacity: 0, y: 10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-          >
-            <div className="christmas-music-header">
-              <Music size={14} />
-              <span>Merry Christmas</span>
-            </div>
-
-            <div className="christmas-music-controls">
-              <button
-                className={`christmas-control-btn ${isPlaying ? "active" : ""}`}
-                onClick={togglePlay}
-              >
-                {isPlaying ? <Pause size={16} /> : <Play size={16} />}
-                <span>{isPlaying ? "Pause" : "Play"}</span>
-              </button>
-              <button
-                className={`christmas-control-btn ${isMuted ? "active" : ""}`}
-                onClick={toggleMute}
-              >
-                {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
-                <span>{isMuted ? "Unmute" : "Mute"}</span>
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <motion.button
-        className={`christmas-music-toggle ${showControls ? "active" : ""} ${
-          isPlaying ? "playing" : ""
-        }`}
-        onClick={() => setShowControls(!showControls)}
-        whileTap={{ scale: 0.95 }}
+        className={`music-btn ${isPlaying ? "playing" : ""}`}
+        onClick={togglePlay}
+        whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
-        <Music size={20} />
-        {isPlaying && !isMuted && (
-          <motion.span
-            className="playing-indicator"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
+        <div className="music-btn-inner">
+          {isPlaying ? <Pause size={18} /> : <Music size={18} />}
+        </div>
+        {isPlaying && (
+          <>
+            <span className="music-wave wave1"></span>
+            <span className="music-wave wave2"></span>
+            <span className="music-wave wave3"></span>
+          </>
         )}
       </motion.button>
     </div>

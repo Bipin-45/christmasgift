@@ -2506,150 +2506,106 @@ html {
   }
 }
 
-/* Christmas Music Player */
-.christmas-music {
+/* Christmas Music Player - Simplified */
+.christmas-music-simple {
   position: fixed;
   bottom: 2rem;
   right: 1.5rem;
   z-index: 100;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.75rem;
 }
 
-.christmas-music-toggle {
-  width: 56px;
-  height: 56px;
+.music-btn {
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    rgba(139, 69, 87, 0.8) 0%,
-    rgba(45, 58, 46, 0.9) 100%
-  );
-  backdrop-filter: blur(12px);
-  border: 2px solid rgba(255, 215, 0, 0.3);
+  background: linear-gradient(135deg, #1a2f23 0%, #0d1512 100%);
+  border: 1.5px solid rgba(255, 215, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.1);
   position: relative;
+  overflow: visible;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.christmas-music-toggle:hover {
-  transform: scale(1.08);
-  border-color: rgba(255, 215, 0, 0.6);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.2);
-}
-
-.christmas-music-toggle.active {
-  border-color: rgba(255, 215, 0, 0.5);
-}
-
-.christmas-music-toggle.playing {
-  animation: musicPulse 2s ease-in-out infinite;
-}
-
-@keyframes musicPulse {
-  0%,
-  100% {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.1);
-  }
-  50% {
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4), 0 0 35px rgba(255, 215, 0, 0.3);
-  }
-}
-
-.music-icon {
-  font-size: 1.5rem;
-}
-
-.playing-indicator {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 12px;
-  height: 12px;
-  background: #4ade80;
-  border-radius: 50%;
-  border: 2px solid rgba(0, 0, 0, 0.3);
-}
-
-.christmas-music-panel {
-  background: linear-gradient(
-    135deg,
-    rgba(13, 18, 16, 0.95) 0%,
-    rgba(26, 37, 32, 0.95) 100%
-  );
-  backdrop-filter: blur(24px);
-  border-radius: 18px;
-  padding: 1.25rem;
-  border: 1px solid rgba(255, 215, 0, 0.15);
-  min-width: 220px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.05);
-}
-
-.christmas-music-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: "Inter", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.music-btn-inner {
   color: rgba(255, 215, 0, 0.8);
-  margin-bottom: 1rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-}
-
-.christmas-icon {
-  font-size: 1rem;
-}
-
-.christmas-music-controls {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.christmas-control-btn {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  cursor: pointer;
-  color: rgba(255, 250, 229, 0.7);
-  font-size: 0.8rem;
-  transition: all 0.2s ease;
-  font-family: "Inter", sans-serif;
+  transition: all 0.3s ease;
 }
 
-.christmas-control-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 250, 229, 1);
-  border-color: rgba(255, 215, 0, 0.3);
+.music-btn:hover {
+  transform: scale(1.05);
+  border-color: rgba(255, 215, 0, 0.5);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.15);
 }
 
-.christmas-control-btn.active {
-  background: rgba(255, 215, 0, 0.15);
+.music-btn:hover .music-btn-inner {
   color: rgba(255, 215, 0, 1);
-  border-color: rgba(255, 215, 0, 0.4);
 }
 
-.christmas-music-note {
-  margin-top: 0.75rem;
-  font-family: "Inter", sans-serif;
-  font-size: 0.65rem;
-  color: rgba(255, 250, 229, 0.4);
-  text-align: center;
+.music-btn.playing {
+  border-color: rgba(255, 215, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 215, 0, 0.2);
+}
+
+.music-btn.playing .music-btn-inner {
+  color: rgba(255, 215, 0, 1);
+}
+
+/* Sound waves animation */
+.music-wave {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 215, 0, 0.4);
+  animation: soundWave 2s ease-out infinite;
+  pointer-events: none;
+}
+
+.wave1 {
+  width: 100%;
+  height: 100%;
+  animation-delay: 0s;
+}
+
+.wave2 {
+  width: 100%;
+  height: 100%;
+  animation-delay: 0.6s;
+}
+
+.wave3 {
+  width: 100%;
+  height: 100%;
+  animation-delay: 1.2s;
+}
+
+@keyframes soundWave {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .christmas-music-simple {
+    bottom: 1.25rem;
+    right: 1rem;
+  }
+
+  .music-btn {
+    width: 46px;
+    height: 46px;
+  }
 }
 
 /* Update title for Christmas */
@@ -2675,28 +2631,6 @@ html {
   background: linear-gradient(90deg, #c41e3a, #228b22, #ffd700);
   opacity: 0;
   transition: opacity 0.3s ease;
-}
-
-/* Mobile adjustments for Christmas music */
-@media (max-width: 768px) {
-  .christmas-music {
-    bottom: 1.25rem;
-    right: 1rem;
-  }
-
-  .christmas-music-toggle {
-    width: 50px;
-    height: 50px;
-  }
-
-  .christmas-music-panel {
-    min-width: 190px;
-  }
-
-  .ornament {
-    font-size: 1.2rem;
-    opacity: 0.2;
-  }
 }
 
 /* ========== CHRISTMAS STORY GAME ========== */
