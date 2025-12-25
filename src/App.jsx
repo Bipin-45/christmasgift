@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import {
   motion,
   useScroll,
@@ -257,6 +258,7 @@ function App() {
   return (
     <>
       <Analytics />
+      <SpeedInsights />
       {/* Christmas Music - rendered outside conditional to prevent remount */}
       <ChristmasMusic
         registerAudio={registerAudio}
